@@ -11,172 +11,33 @@ This electron project comes with the following features:
 
 - React
 - Typescript
+- Page Navigation
+- Tailwind CSS
+- Shadcn/UI Components
 - CSS Modules
-- SASS Styles
-- SCSS Styles
+- Theme Management (Shadcn)
 - Electron Auto-Reload (Implemented)
 - Electron Auto-Update (Implemented / Commented out)
 - Electron Build (Structure for configuration / Requires personalized values)
-- Production ready
+- Production Ready
 
 ---
 
 ### Get Started
 Getting started with this project is very simple, first you need to download this project on your local device and from there, follow the steps below.
-1. Run `npm install` or `npm i` inside your project directory (use `yarn install` if you are using **yarn** as a pm).
+1. Run `npm install` inside your project directory to install all required packages.
 2. Open <ins>**package.json**</ins> fill in all the missing details (remove fields if not needed, this is based on your preferences and the app you are building).
-3. Run `npm run watch` to create the javascrpt bundle from the React code, while also having a live update on your app everytime a change is made.
-4. After the <ins>**bundler.js**</ins> has been created inside <ins>**/public/build/**</ins> run the project with `npm start`.
-5. You should see an electron window show up with **"Hello World"** displayed in HTML.
-6. Happy hacking!
+3. Run `npm run dev` to start the webpack config and build a javascrpt bundle, and start the electron project.
+4. Happy hacking!
 
 ---
 
 ### General Configuration
-This project comes with a variety of libraries inside <ins>**package.json**</ins>, and other file settings, some of which you may not need to your project. You can simply uninstall them with `npm uninstall <package-name>` or you can remove them from the list before executing `npm install`.
+This project comes with a variety of libraries included, inside <ins>**package.json**</ins>. You can simply uninstall them with `npm uninstall <package-name>` or you can remove them from the list before executing `npm install` if you don't need some of them.
 
-In the project files, you will see there are 2 main files for electron called <ins>**main-dev.json**</ins> and <ins>**main-prod.json**</ins>. These 2 files are configured accordingly for development and production. Inside the development version, you will see that DevTools are enabled, and `electron-reload` library is used for automatically reloading on save. On the other hand, inside the production version, you can see that `electron-reload` is removed from the code, DevTools are disabled and the menu is hidden. There are also methods and flags added for the auto-update feature to your electron app (these are commented out).
+In the project files, you will see there are 2 main files for electron called <ins>**main-dev.json**</ins> and <ins>**main-prod.json**</ins>. These 2 files are configured for development and production accordingly. Inside the development main, you will see that DevTools are enabled, and `electron-reload` library is used for automatically reloading on save. On the production main, you can see that `electron-reload` is removed from the code, DevTools are disabled and the menu is hidden. There are also methods and flags added for the auto-update feature to your electron app (these are commented out).
 
----
-
-### Package.json Configuration - Requires Changes
-Required values that need to be changed, if your are planning on building and adding update functionality to your application. Anything you are not using you can simply remove from the <ins>**package.json**</ins> file.
-
-<table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Name</th>
-      <th>Current Value</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Line 3</td>
-      <td>displayName</td>
-      <td>DISPLAY_NAME_HERE</td>
-      <td>The display name of your application.</td>
-    </tr>
-    <tr>
-      <td>Line 5</td>
-      <td>description</td>
-      <td>APP_DESCRIPTION_HERE</td>
-      <td>The description of your application.</td>
-    </tr>
-    <tr>
-      <td>Line 14</td>
-      <td>repository.url</td>
-      <td>REPO_URL_HERE</td>
-      <td>The repository url of your project (e.g. Github)</td>
-    </tr>
-    <tr>
-      <td>Line 27</td>
-      <td>productName</td>
-      <td>PRODUCT_NAME_HERE</td>
-      <td>The name of your product. This name will be displayed as your application.</td>
-    </tr>
-    <tr>
-      <td>Line 32</td>
-      <td>icon</td>
-      <td>ICON_PATH_HERE</td>
-      <td>The location of your application icon.</td>
-    </tr>
-    <tr>
-      <td>Line 36</td>
-      <td>installerIcon</td>
-      <td>INSTALLER_ICON_PATH_HERE</td>
-      <td>The location of your installer icon.</td>
-    </tr>
-    <tr>
-      <td>Line 37</td>
-      <td>uninstallerIcon</td>
-      <td>UNINSTALLER_ICON_PATH_HERE</td>
-      <td>The location of your uninstaller icon.</td>
-    </tr>
-    <tr>
-      <td>Line 38</td>
-      <td>uninstallDisplayName</td>
-      <td>UNINSTALLER_NAME_HERE</td>
-      <td>The name of your application's uninstaller.</td>
-    </tr>
-    <tr>
-      <td>Line 45</td>
-      <td>author</td>
-      <td>AUTHOR_NAME_HERE</td>
-      <td>Your name or your organization name. (e.g. the developer's name)</td>
-    </tr>
-    <tr>
-      <td>Line 48</td>
-      <td>bugs.url</td>
-      <td>HTTPS:YOUR_REPO_ISSUES_URL_HERE</td>
-      <td>The bug URL for your application (e.g. Github Issues)</td>
-    </tr>
-    <tr>
-      <td>Line 50</td>
-      <td>homepage</td>
-      <td>YOUR_REPO_README_URL</td>
-      <td>The homepage of your application (e.g. Github readme.md)</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-### Package.json Configuration - Optional
-You can change everything on the package.json, however, if you want to keep the functionality similar here are the main optional values you should change, unique for your application.
-
-<table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Name</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Line 2</td>
-      <td>name</td>
-      <td>my-app</td>
-      <td>The project name.</td>
-    </tr>
-    <tr>
-      <td>Line 4</td>
-      <td>version</td>
-      <td>1.0.0</td>
-      <td>The version of your application.</td>
-    </tr>
-    <tr>
-      <td>Line 6</td>
-      <td>main</td>
-      <td>main-dev.js</td>
-      <td>You can choose `main-dev.js` or `main-prod.js`</td>
-    </tr>
-    <tr>
-      <td>Line 21</td>
-      <td>build.appId</td>
-      <td>com.example.app</td>
-      <td>The application ID of your product.</td>
-    </tr>
-    <tr>
-      <td>Line 22</td>
-      <td>build.files</td>
-      <td>["main-prod.js", "public/", "config/"]</td>
-      <td>The files to be included in the build version.</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-### Global Style Configuration
-In the <ins>**/public/**</ins> folder there are 2 files by default: <ins>**./index.html**</ins> and <ins>**./style.css**</ins>. It is not recommended to change the HTML file as that is the root of the project, however you can make any changes to the styles file.
-
-By default the styles have `user-select: none !important;` and `-webkit-user-drag: none !important;`. These properties ensure users cannot select text or content on your application nor drag images or text around.
-
-In addition, there are global properties for customizing the scrollbars on your application, if you wish to leave them as default, either remove them completely or leave empty.
+When the project is ready for release, ensure to switch from the dev and point to the prod main. Uncomment or remove the comments completely depending on what you need. And build from prod.
 
 ---
 
@@ -185,5 +46,24 @@ When creating components, ensure you always add `import React from 'react';` on 
 
 ---
 
-### Creating CSS Modules
-Tutorial: https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+### Navigation
+There is a pre-built navigation utility implemented in this project, where you can navigate between page components. You can see an example of the provider in the `app.tsx` file. There is also a hook that you can use to navigate between pages or components, get current page, and also all available pages.
+
+---
+
+### Creating Pages
+You can create new pages by going to the <ins>**pages**</ins> folder and create a new component inside it. You can create multiple folders inside as well as files, all files will be considered as pages and will be accessible via the <ins>**navigator**</ins>.
+
+---
+
+### Navigation Paths
+Defining the paths of created pages is easy. Simply use the relative path of the page component (excluding the root pages folder) and you can navigate to that page.
+
+For example: ./pages/user/profile.tsx
+To navigate to the profile page you can use `setPage("user/profile")` and that's all.
+
+---
+
+### Navigation Drawbacks
+- Currently navigation is not persistant, meaning you cannot refresh the electron window and stay on the navigated page. It will take you back to the default page as defined in the navigation provider.
+- You cannot pass props from one page to the other currently. But a simple workaround is to use any type of storage (e.g. localStorage).
