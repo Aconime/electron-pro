@@ -1,0 +1,7 @@
+node_modules
+public/build/bundle.js
+/public/build/bundle.js
+./public/build/bundle.js
+./build
+/build
+build
