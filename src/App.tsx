@@ -4,7 +4,7 @@ import Header from "./components/base/header";
 
 const App = () => {
   return (
-    <NavigatorProvider mainPageName="home">
+    <NavigatorProvider defaultPage="home">
       <Header />
     </NavigatorProvider>
   );

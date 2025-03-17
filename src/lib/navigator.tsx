@@ -33,18 +33,23 @@ const NavigatorContext = createContext<NavigatorContextType | undefined>(
 
 export const NavigatorProvider = ({
   children,
-  mainPageName,
+  defaultPage,
 }: {
   children?: ReactNode;
-  mainPageName: string;
+  defaultPage: string;
 }) => {
   const pages = importAllPages();
-  const [currentPage, setCurrentPage] = useState<string>(mainPageName);
+  const [currentPage, setCurrentPage] = useState<string>(
+    localStorage.getItem("currentPage") || defaultPage
+  );
+
+  const setPage = (pageName: string) => {
+    setCurrentPage(pageName);
+    localStorage.setItem("currentPage", pageName);
+  };
 
   return (
-    <NavigatorContext.Provider
-      value={{ currentPage, setPage: setCurrentPage, pages }}
-    >
+    <NavigatorContext.Provider value={{ currentPage, setPage, pages }}>
       {children}
       <PageRenderer pageName={currentPage} pages={pages} />
     </NavigatorContext.Provider>
