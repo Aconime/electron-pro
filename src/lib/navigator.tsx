@@ -1,8 +1,9 @@
+import { Button } from "@/components/core/button";
 import { Panel } from "@/components/layout/panel";
 import { Icon } from "@/components/shared/icon";
 import { cn } from "@/utils/cn";
 import {
-  faArrowRightLong,
+  faArrowLeftLong,
   faExternalLink,
 } from "@fortawesome/free-solid-svg-icons";
 import React, { ReactNode, createContext, useContext, useState } from "react";
@@ -123,10 +124,16 @@ export const ErrorPage = ({ mode }: { mode?: "dev" | "prod" }) => {
                   </div>
                 ))
               ) : (
-                <p>
-                  No available pages found. Ensure that all your page components
-                  are inside the `/pages` folder.
-                </p>
+                <div className="flex flex-col gap-4">
+                  <p>
+                    No available pages found. Ensure that all your page
+                    components are inside the `/pages` folder.
+                  </p>
+
+                  <Button icon={faArrowLeftLong} className="self-start">
+                    Go Back
+                  </Button>
+                </div>
               )}
             </div>
           </div>
